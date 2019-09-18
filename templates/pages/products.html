@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+{% include "components/navigation.html" %}
+
+<div class="site-section">
+    <div class="container">
+
+        <div class="row">
+        {% for product in products %}
+            <div class="col-sm-6 col-lg-4 text-center item mb-4">
+                <a href="shop-single.html"> <img src={{ product.image.url }} alt="Image"></a>
+                <h3 class="text-dark"><a href="shop-single.html">{{ product.name }}</a></h3>
+                <p class="price">₹{{ product.price }}</p>
+            </div>
+        {% endfor %}
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-12 text-center">
+                <div class="site-block-27">
+                    <ul>
+                        {% if products.has_previous %}
+                        <li><a href="?page=1">&laquo;</a></li>
+                        <li><a href="?page={{ products.previous_page_number }}">&lt;</a></li>
+                        {% endif %}
+
+                        <li class="active"><span>{{ products.number }}</span></li>
+
+                        {% if products.has_next %}
+                        <li><a href="?page={{ products.next_page_number }}">{{ products.next_page_number }}</a></li>
+                        <li><a href="?page={{ products.paginator.num_pages }}">&raquo;</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include "components/pre-footer.html" %}
+
+{% endblock content %}
