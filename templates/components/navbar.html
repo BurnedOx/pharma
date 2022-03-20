@@ -2,39 +2,51 @@
 
 <div class="site-navbar py-2">
 
-    <div class="search-wrap">
-        <div class="container">
-            <a href="#" class="search-close js-search-close"><span class="icon-close2"></span></a>
-            <form action="#" method="post">
-                <input type="text" class="form-control" placeholder="Search keyword and hit enter...">
-            </form>
-        </div>
-    </div>
-
+  <div class="search-wrap">
     <div class="container">
-        <div class="d-flex align-items-center justify-content-between">
-            <div class="logo">
-                <div class="site-logo">
-                    
-                    <a href="{% url 'poll:home' %}" class="js-logo-clone"><img src="{% static 'images/logo.png' %}" height="70" width="70" alt=""></a>
-                </div>
-            </div>
-            <div class="main-nav d-none d-lg-block">
-                <nav class="site-navigation text-right text-md-center" role="navigation">
-                    <ul class="site-menu js-clone-nav d-none d-lg-block">
-                        <li class="{{ home_page }}"><a href="{% url 'poll:home' %}">Home</a></li>
-                        <li class="{{ about_page }}"><a href="{% url 'poll:about' %}">About</a></li>
-                        <li class="{{ products_page }}"><a href="{% url 'poll:products' %}">Events</a></li>
-                        <li class="{{ products_page }}"><a href="{% url 'poll:products' %}">Gallery</a></li>
-                        <li class="{{ contact_page }}"><a href="{% url 'poll:contact' %}">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="icons">
-                <a href="#" class="icons-btn d-inline-block js-search-open"><span class="icon-search"></span></a>
-                <a href="#" class="site-menu-toggle js-menu-toggle ml-3 d-inline-block d-lg-none"><span
-                        class="icon-menu"></span></a>
-            </div>
-        </div>
+      <a href="#" class="search-close js-search-close">
+        <span class="icon-close2"></span></a>
+      <form action="#" method="post">
+        <input type="text" class="form-control" placeholder="Search keyword and hit enter...">
+      </form>
     </div>
+  </div>
+
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="logo">
+        <div class="site-logo">
+
+          <a href="{% url 'poll:home' %}" class="js-logo-clone"><img src="{% static 'images/logo.png' %}" height="70" width="70" alt=""></a>
+        </div>
+      </div>
+      <div class="main-nav d-none d-lg-block">
+        <nav class="site-navigation text-right text-md-center" role="navigation">
+          <ul class="site-menu js-clone-nav d-none d-lg-block">
+            <li class="{{ home_page }}">
+              <a href="{% url 'poll:home' %}">Home</a>
+            </li>
+            <li class="{{ about_page }}">
+              <a href="{% url 'poll:about' %}">About</a>
+            </li>
+            <li class="{{ events_page }}">
+              <a href="{% url 'poll:events' %}">Events</a>
+            </li>
+            <li class="{{ gallery_page }}">
+              <a href="{% url 'poll:gallery' %}">Gallery</a>
+            </li>
+            <li class="{{ contact_page }}">
+              <a href="{% url 'poll:contact' %}">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="icons">
+        <a href="#" class="icons-btn d-inline-block js-search-open">
+          <span class="icon-search"></span></a>
+        <a href="#" class="site-menu-toggle js-menu-toggle ml-3 d-inline-block d-lg-none">
+          <span class="icon-menu"></span></a>
+      </div>
+    </div>
+  </div>
 </div>

@@ -3,8 +3,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <title>Pharma</title>
+  <head>
+    <title>Noukaa</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -17,37 +17,34 @@
     <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
 
-
     <link rel="stylesheet" href="{% static 'css/aos.css' %}">
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
 
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="site-wrap">
 
-        {% include "components/navbar.html" %}
+      {% include "components/navbar.html" %}
 
-        {% block content %}
-          
-        {% endblock content %}
+      {% block content %}{% endblock content %}
 
-        {% include "components/footer.html" %}
+      {% include "components/footer.html" %}
 
-        <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-        <script src="{% static 'js/jquery-ui.js' %}"></script>
-        <script src="{% static 'js/popper.min.js' %}"></script>
-        <script src="{% static 'js/bootstrap.min.js' %}"></script>
-        <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-        <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
-        <script src="{% static 'js/aos.js' %}"></script>
+      <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+      <script src="{% static 'js/jquery-ui.js' %}"></script>
+      <script src="{% static 'js/popper.min.js' %}"></script>
+      <script src="{% static 'js/bootstrap.min.js' %}"></script>
+      <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+      <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+      <script src="{% static 'js/aos.js' %}"></script>
 
-        <script src="{% static 'js/main.js' %}"></script>
+      <script src="{% static 'js/main.js' %}"></script>
 
     </div>
-</body>
+  </body>
 
 </html>

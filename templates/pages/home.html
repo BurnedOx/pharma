@@ -4,178 +4,174 @@
 
 {% block banner %}
 
-<h2 class="sub-title">Clean White and Black, no confused shades of grey,
-    Noukaa is a reality, no more no less.</h2>
-<h1>Welcome To Noukaa</h1>
-<p>
+  <h2 class="sub-title">
+    Clean White and Black, no confused shades of grey, Noukaa is a reality, no more no less.
+  </h2>
+  <h1>Welcome To Noukaa</h1>
+  <p>
     <a href="{% url 'poll:contact' %}" class="btn btn-primary px-5 py-3">Join Us</a>
-</p>
+  </p>
 
 {% endblock banner %}
 
 {% block main %}
 
-<div class="site-section">
+  <div class="site-section">
     <div class="container">
-        <div class="row align-items-stretch section-overlap">
-            <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-                <div class="banner-wrap bg-primary h-100">
-                    <a href="#" class="h-100">
-                        <h5>Free <br> Shipping</h5>
-                        <p>
-                            Amet sit amet dolor
-                            <strong>Lorem, ipsum dolor sit amet consectetur adipisicing.</strong>
-                        </p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-                <div class="banner-wrap h-100">
-                    <a href="#" class="h-100">
-                        <h5>Season <br> Sale 50% Off</h5>
-                        <p>
-                            Amet sit amet dolor
-                            <strong>Lorem, ipsum dolor sit amet consectetur adipisicing.</strong>
-                        </p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-                <div class="banner-wrap bg-warning h-100">
-                    <a href="#" class="h-100">
-                        <h5>Buy <br> A Gift Card</h5>
-                        <p>
-                            Amet sit amet dolor
-                            <strong>Lorem, ipsum dolor sit amet consectetur adipisicing.</strong>
-                        </p>
-                    </a>
-                </div>
-            </div>
-
+      <div class="row align-items-stretch section-overlap">
+        <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+          <div class="banner-wrap bg-primary h-100">
+            <a href="#" class="h-100">
+              <h5>
+                Donate
+              </h5>
+              <p>
+                Our mission is to help children in need.
+              </p>
+            </a>
+          </div>
         </div>
+        <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+          <div class="banner-wrap h-100">
+            <a href="#" class="h-100">
+              <h5>
+                Our Team
+              </h5>
+              <p>
+                We are a team of passionate people who love to help others.
+              </p>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+          <div class="banner-wrap bg-warning h-100">
+            <a href="#" class="h-100">
+              <h5>
+                Notice Board
+              </h5>
+              <p>
+                View our latest news and updates.
+              </p>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
 
-<div class="site-section">
+  <div class="site-section">
     <div class="container">
-        <div class="row">
-            <div class="title-section text-center col-12">
-                <h2 class="text-uppercase">Upcoming Events</h2>
-            </div>
+      <div class="row">
+        <div class="title-section text-center col-12">
+          <h2 class="text-uppercase">Upcoming Events</h2>
         </div>
+      </div>
 
-        <div class="row">
-            {% for product in popular_products %}
-            <div class="col-sm-6 col-lg-4 text-center item mb-4">
-                <a href="shop-single.html"> <img src="{{ product.image.url }}" alt="Image"></a>
-                <h3 class="text-dark"><a href="shop-single.html">{{ product.name }}</a></h3>
-                <p class="price">₹{{ product.price }}</p>
-            </div>
+      <div class="row">
+        {% for event in events %}
+          <div class="col-sm-6 col-lg-4 text-center item mb-4">
+            <a href="shop-single.html">
+              <img width="275" height="180" src="{{ event.image.url }}" alt="Image"/></a>
+            <h3 class="text-dark">
+              <a href="shop-single.html">{{ event.name }}</a>
+            </h3>
+            <p class="text-sm my-2">{{ event.scheduled_date_formated }}</p>
+            <p class="price">₹{{ event.price }}</p>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="row mt-5">
+        <div class="col-12 text-center">
+          <a href="{% url 'poll:events' %}" class="btn btn-primary px-4 py-3">View All Events</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-section bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="title-section text-center col-12">
+          <h2 class="text-uppercase">Our Gallery</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 block-3 products-wrap">
+          <div class="nonloop-block-3 owl-carousel">
+            {% for image in gallery %}
+              <div class="text-center item mb-4">
+                <a href="shop-single.html">
+                  <img width="350" height="230" src="{{ image.src.url }}" alt="Image"/></a>
+                <h3 class="text-dark">
+                  <a href="shop-single.html">{{ image.title }}</a>
+                </h3>
+              </div>
             {% endfor %}
+          </div>
         </div>
-        <div class="row mt-5">
-            <div class="col-12 text-center">
-                <a href="{% url 'poll:products' %}" class="btn btn-primary px-4 py-3">View All Events</a>
-            </div>
-        </div>
+      </div>
     </div>
-</div>
+  </div>
 
-
-<div class="site-section bg-light">
+  <div class="site-section">
     <div class="container">
-        <div class="row">
-            <div class="title-section text-center col-12">
-                <h2 class="text-uppercase">Our Gallery</h2>
-            </div>
+      <div class="row">
+        <div class="title-section text-center col-12">
+          <h2 class="text-uppercase">Testimonials</h2>
         </div>
-        <div class="row">
-            <div class="col-md-12 block-3 products-wrap">
-                <div class="nonloop-block-3 owl-carousel">
-                    {% for product in new_products %}
-                    <div class="text-center item mb-4">
-                        <a href="shop-single.html"> <img src="{{ product.image.url }}" alt="Image"></a>
-                        <h3 class="text-dark"><a href="shop-single.html">{{ product.name }}</a></h3>
-                        <p class="price">₹{{ product.price }}</p>
-                    </div>
-                    {% endfor %}
-                </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 block-3 products-wrap">
+          <div class="nonloop-block-3 no-direction owl-carousel">
+            <div class="testimony">
+              <blockquote>
+                <img src="{% static 'images/person_1.jpg' %}" alt="Image" class="img-fluid w-25 mb-4 rounded-circle"/>
+                <p>
+                  &ldquo;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo omnis voluptatem consectetur quam tempore obcaecati maiores voluptate aspernatur iusto eveniet, placeat ab quod tenetur ducimus. Minus ratione sit quaerat unde.&rdquo;
+                </p>
+              </blockquote>
+
+              <p>&mdash; Kelly Holmes</p>
             </div>
+
+            <div class="testimony">
+              <blockquote>
+                <img src="{% static 'images/person_2.jpg' %}" alt="Image" class="img-fluid w-25 mb-4 rounded-circle"/>
+                <p>
+                  &ldquo;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo omnis voluptatem consectetur quam tempore obcaecati maiores voluptate aspernatur iusto eveniet, placeat ab quod tenetur ducimus. Minus ratione sit quaerat unde.&rdquo;
+                </p>
+              </blockquote>
+
+              <p>&mdash; Rebecca Morando</p>
+            </div>
+
+            <div class="testimony">
+              <blockquote>
+                <img src="{% static 'images/person_3.jpg' %}" alt="Image" class="img-fluid w-25 mb-4 rounded-circle"/>
+                <p>
+                  &ldquo;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo omnis voluptatem consectetur quam tempore obcaecati maiores voluptate aspernatur iusto eveniet, placeat ab quod tenetur ducimus. Minus ratione sit quaerat unde.&rdquo;
+                </p>
+              </blockquote>
+
+              <p>&mdash; Lucas Gallone</p>
+            </div>
+
+            <div class="testimony">
+              <blockquote>
+                <img src="{% static 'images/person_4.jpg' %}" alt="Image" class="img-fluid w-25 mb-4 rounded-circle"/>
+                <p>
+                  &ldquo;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo omnis voluptatem consectetur quam tempore obcaecati maiores voluptate aspernatur iusto eveniet, placeat ab quod tenetur ducimus. Minus ratione sit quaerat unde.&rdquo;
+                </p>
+              </blockquote>
+
+              <p>&mdash; Andrew Neel</p>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 
-<div class="site-section">
-    <div class="container">
-        <div class="row">
-            <div class="title-section text-center col-12">
-                <h2 class="text-uppercase">Testimonials</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 block-3 products-wrap">
-                <div class="nonloop-block-3 no-direction owl-carousel">
-
-                    <div class="testimony">
-                        <blockquote>
-                            <img src="{% static 'images/person_1.jpg' %}" alt="Image"
-                                class="img-fluid w-25 mb-4 rounded-circle">
-                            <p>&ldquo;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo omnis voluptatem
-                                consectetur quam tempore obcaecati maiores voluptate aspernatur iusto eveniet, placeat
-                                ab quod tenetur ducimus. Minus ratione sit quaerat unde.&rdquo;</p>
-                        </blockquote>
-
-                        <p>&mdash; Kelly Holmes</p>
-                    </div>
-
-                    <div class="testimony">
-                        <blockquote>
-                            <img src="{% static 'images/person_2.jpg' %}" alt="Image"
-                                class="img-fluid w-25 mb-4 rounded-circle">
-                            <p>&ldquo;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo omnis voluptatem
-                                consectetur quam tempore
-                                obcaecati maiores voluptate aspernatur iusto eveniet, placeat ab quod tenetur ducimus.
-                                Minus ratione sit quaerat
-                                unde.&rdquo;</p>
-                        </blockquote>
-
-                        <p>&mdash; Rebecca Morando</p>
-                    </div>
-
-                    <div class="testimony">
-                        <blockquote>
-                            <img src="{% static 'images/person_3.jpg' %}" alt="Image"
-                                class="img-fluid w-25 mb-4 rounded-circle">
-                            <p>&ldquo;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo omnis voluptatem
-                                consectetur quam tempore
-                                obcaecati maiores voluptate aspernatur iusto eveniet, placeat ab quod tenetur ducimus.
-                                Minus ratione sit quaerat
-                                unde.&rdquo;</p>
-                        </blockquote>
-
-                        <p>&mdash; Lucas Gallone</p>
-                    </div>
-
-                    <div class="testimony">
-                        <blockquote>
-                            <img src="{% static 'images/person_4.jpg' %}" alt="Image"
-                                class="img-fluid w-25 mb-4 rounded-circle">
-                            <p>&ldquo;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo omnis voluptatem
-                                consectetur quam tempore
-                                obcaecati maiores voluptate aspernatur iusto eveniet, placeat ab quod tenetur ducimus.
-                                Minus ratione sit quaerat
-                                unde.&rdquo;</p>
-                        </blockquote>
-
-                        <p>&mdash; Andrew Neel</p>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-{% include "components/pre-footer.html" %}
+  {% include "components/pre-footer.html" %}
 
 {% endblock main %}

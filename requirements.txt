@@ -1,5 +1,7 @@
+autopep8==1.6.0
 Django==2.2.5
 Pillow==9.0.1
-pkg_resources==0.0.0
+pycodestyle==2.8.0
 pytz==2019.2
 sqlparse==0.3.0
+toml==0.10.2
