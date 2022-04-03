@@ -8,29 +8,33 @@
   .banner2-background {
     background-image: url("{% static 'images/bg_2.jpg' %}");
   }
+
+  .social-img {
+    max-width: 100%;
+  }
 </style>
 
 <div class="site-section bg-secondary bg-image banner2-background">
   <div class="container">
     <div class="row align-items-stretch">
       <div class="col-lg-6 mb-5 mb-lg-0">
-        <a href="#" class="banner-1 h-100 d-flex banner1-background">
+        <a href="https://www.facebook.com/nouka.net/" class="banner-1 h-100 d-flex banner1-background">
           <div class="backdrop" style="border-radius: 4px"></div>
           <div class="banner-1-inner align-self-center position-relative">
-            <h2 class="text-white">Pharma Products</h2>
+            <img class="social-img" src="{% static 'images/facebook.webp' %}" >
             <p class="text-white">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae ex ad minus rem odio voluptatem.
+              Please support us, Visit our facebook page.
             </p>
           </div>
         </a>
       </div>
       <div class="col-lg-6 mb-5 mb-lg-0">
-        <a href="#" class="banner-1 h-100 d-flex banner2-background">
+        <a href="whatsapp://send?text=Hello&phone=+917596976911" class="banner-1 h-100 d-flex banner2-background">
           <div class="backdrop" style="border-radius: 4px"></div>
           <div class="banner-1-inner ml-auto align-self-center position-relative">
-            <h2 class="text-white">Rated by Experts</h2>
+            <img class="social-img" src="{% static 'images/whatsapp.jpg' %}" >
             <p class="text-white">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae ex ad minus rem odio voluptatem.
+              Say "Hello" to us on Whatsapp.
             </p>
           </div>
         </a>
