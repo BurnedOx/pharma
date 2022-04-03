@@ -35,7 +35,14 @@
               {% for media in gallery %}
                 <div class="col-sm-6 col-lg-4 text-center item mb-4">
                   <a href="shop-single.html">
-                    <img width="350" height="230" src="{{ media.src.url }}" alt="Image"/></a>
+                    {% if media.src_type == 'image' %}
+                      <img width="350" height="230" src="{{ media.src.url }}" alt="Image"/>
+                    {% else %}
+                      <video width="350" height="230" controls="controls">
+                        <source src="{{ media.src.url }}">
+                      </video>
+                    {% endif %}
+                  </a>
                 </div>
               {% endfor %}
             </div>

@@ -1,7 +1,9 @@
 from datetime import datetime
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views import generic
 from django.core.paginator import Paginator
+
+from .forms import *
 from .models import *
 
 # Create your views here.
@@ -53,7 +55,7 @@ class EventDetailView(generic.DetailView):
 
     def get(self, request, *args, **kwargs):
         event = self.get_object()
-        gallery = Media.objects.filter(event=event, src_type='image')
+        gallery = Media.objects.filter(event=event)
         context = {
             "event": event,
             "gallery": gallery,
@@ -82,5 +84,19 @@ class ContactView(generic.TemplateView):
     template_name = "pages/contact.html"
 
     def get(self, request):
-        context = {"contact_page": "active"}
+        form = ContactForm()
+        context = {"contact_page": "active", "form": form}
         return render(request, self.template_name, context)
+
+    def post(self, request):
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            Contact.objects.create(
+                name=form.cleaned_data['name'],
+                email=form.cleaned_data['email'],
+                subject=form.cleaned_data['subject'],
+                message=form.cleaned_data['message'],
+            )
+            return redirect('poll:contact')
+        else:
+            return render(request, self.template_name, {"contact_page": "active", "form": form})

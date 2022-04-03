@@ -24,7 +24,7 @@ class Event(models.Model):
 
     def scheduled_date_formated(self):
         return self.scheduled_date.strftime("%d/%m/%Y %H:%M")
-        
+
     class Meta:
         ordering = ["-scheduled_date", "-created"]
 
@@ -51,6 +51,20 @@ class Member(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        ordering = ["created"]
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length=250)
+    email = models.EmailField()
+    subject = models.CharField(max_length=250)
+    message = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name + " - " + self.subject
 
     class Meta:
         ordering = ["created"]
