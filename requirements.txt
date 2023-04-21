@@ -3,5 +3,5 @@ Django==2.2.5
 Pillow==9.0.1
 pycodestyle==2.8.0
 pytz==2019.2
-sqlparse==0.3.0
+sqlparse==0.4.4
 toml==0.10.2
